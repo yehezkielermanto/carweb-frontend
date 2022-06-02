@@ -1,6 +1,9 @@
 {
   "name": "challange-7",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.15.0"
+  },
   "private": true,
   "dependencies": {
     "@react-oauth/google": "^0.2.1",
