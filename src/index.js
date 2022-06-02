@@ -19,6 +19,8 @@ import Protected from './components/Protected'
 
 import reportWebVitals from './reportWebVitals'
 
+require('dotenv').config()
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <Provider store={store}>
@@ -36,7 +38,7 @@ root.render(
         <Route
           path="/login"
           element={
-            <GoogleOAuthProvider clientId="991015068005-j36ajv7n18pogrbk11eob4noo5t1uo1o.apps.googleusercontent.com">
+            <GoogleOAuthProvider clientId={process.env.CLIENT_ID}>
               <Login />
             </GoogleOAuthProvider>
           }
@@ -44,7 +46,7 @@ root.render(
         <Route
           path="/register"
           element={
-            <GoogleOAuthProvider clientId="991015068005-j36ajv7n18pogrbk11eob4noo5t1uo1o.apps.googleusercontent.com">
+            <GoogleOAuthProvider clientId={process.env.CLIENT_ID}>
               <Register />
             </GoogleOAuthProvider>
           }

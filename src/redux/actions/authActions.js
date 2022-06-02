@@ -1,9 +1,9 @@
 import { AUTH_ERROR, LOGIN, LOGOUT, GET_USER } from './types'
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2'
 
 export const registerViaForm = (data) => async (dispatch) => {
   try {
-    const response = await fetch('http://localhost:8000/api/v1/register', {
+    const response = await fetch(`${process.env.ENDPOINT_REGISTER}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -21,8 +21,8 @@ export const registerViaForm = (data) => async (dispatch) => {
     } else {
       //alert(result.message)
       Swal.fire({
-        position: "center",
-        icon: "warning",
+        position: 'center',
+        icon: 'warning',
         titleText: result.message,
         showConfirmButton: false,
         timer: 950,
@@ -36,7 +36,7 @@ export const registerViaForm = (data) => async (dispatch) => {
 
 export const loginViaForm = (data) => async (dispatch) => {
   try {
-    const response = await fetch('http://localhost:8000/api/v1/login', {
+    const response = await fetch(`${process.env.ENDPOINT_LOGIN}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -52,12 +52,12 @@ export const loginViaForm = (data) => async (dispatch) => {
     } else {
       //alert(result.message)
       Swal.fire({
-        position: "center",
-        icon: "warning",
+        position: 'center',
+        icon: 'warning',
         titleText: result.message,
         showConfirmButton: false,
         timer: 950,
-      });
+      })
       authError(result.error)
     }
   } catch (error) {
@@ -90,7 +90,7 @@ export const loginWithGoogle = (accessToken) => async (dispatch) => {
     const data = {
       access_token: accessToken,
     }
-    const response = await fetch('http://localhost:8000/api/v1/auth/google', {
+    const response = await fetch(`${process.env.ENDPOINT_GOOGLE}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -107,12 +107,12 @@ export const loginWithGoogle = (accessToken) => async (dispatch) => {
     } else {
       //alert(result.message)
       Swal.fire({
-        position: "center",
-        icon: "warning",
+        position: 'center',
+        icon: 'warning',
         titleText: result.message,
         showConfirmButton: false,
         timer: 950,
-      });
+      })
       authError(result.error)
     }
   } catch (error) {
@@ -123,7 +123,7 @@ export const loginWithGoogle = (accessToken) => async (dispatch) => {
 export const getUser = () => async (dispatch) => {
   try {
     const token = localStorage.getItem('token')
-    const response = await fetch('http://localhost:8000/api/v1/auth/me', {
+    const response = await fetch(`${process.env.ENDPOINT_ME}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
