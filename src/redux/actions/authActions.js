@@ -3,7 +3,7 @@ import Swal from 'sweetalert2'
 
 export const registerViaForm = (data) => async (dispatch) => {
   try {
-    const response = await fetch(`${process.env.ENDPOINT_REGISTER}`, {
+    const response = await fetch(`${process.env.REACT_APP_ENDPOINT_REGISTER}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export const registerViaForm = (data) => async (dispatch) => {
 
 export const loginViaForm = (data) => async (dispatch) => {
   try {
-    const response = await fetch(`${process.env.ENDPOINT_LOGIN}`, {
+    const response = await fetch(`${process.env.REACT_APP_ENDPOINT_LOGIN}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ export const loginWithGoogle = (accessToken) => async (dispatch) => {
     const data = {
       access_token: accessToken,
     }
-    const response = await fetch(`${process.env.ENDPOINT_GOOGLE}`, {
+    const response = await fetch(`${process.env.REACT_APP_ENDPOINT_GOOGLE}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ export const loginWithGoogle = (accessToken) => async (dispatch) => {
 export const getUser = () => async (dispatch) => {
   try {
     const token = localStorage.getItem('token')
-    const response = await fetch(`${process.env.ENDPOINT_ME}`, {
+    const response = await fetch(`${process.env.REACT_APP_ENDPOINT_ME}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

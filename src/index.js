@@ -18,7 +18,7 @@ import NotFound from './pages/404'
 import Protected from './components/Protected'
 
 import reportWebVitals from './reportWebVitals'
-const { CLIENT_ID } = process.env
+const { REACT_APP_CLIENT_ID } = process.env
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -37,7 +37,7 @@ root.render(
         <Route
           path="/login"
           element={
-            <GoogleOAuthProvider clientId={CLIENT_ID}>
+            <GoogleOAuthProvider clientId={REACT_APP_CLIENT_ID}>
               <Login />
             </GoogleOAuthProvider>
           }
@@ -45,7 +45,7 @@ root.render(
         <Route
           path="/register"
           element={
-            <GoogleOAuthProvider clientId={CLIENT_ID}>
+            <GoogleOAuthProvider clientId={REACT_APP_CLIENT_ID}>
               <Register />
             </GoogleOAuthProvider>
           }

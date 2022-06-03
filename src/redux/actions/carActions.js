@@ -5,7 +5,7 @@ export const filterCar = (data) => async (dispatch) => {
     const token = localStorage.getItem('token')
     // sending query
     const response = await fetch(
-      'http://localhost:8000/api/v1/cars?' +
+      `${process.env.REACT_APP_ENDPOINT_SEARCH_CAR}` +
         new URLSearchParams({
           time: data.time,
           date: data.date,
