@@ -19,7 +19,7 @@ import Protected from './components/Protected'
 
 import reportWebVitals from './reportWebVitals'
 
-require('dotenv').config()
+// require('dotenv').config()
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
