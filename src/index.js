@@ -18,8 +18,7 @@ import NotFound from './pages/404'
 import Protected from './components/Protected'
 
 import reportWebVitals from './reportWebVitals'
-
-// require('dotenv').config()
+const { CLIENT_ID } = process.env
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -38,7 +37,7 @@ root.render(
         <Route
           path="/login"
           element={
-            <GoogleOAuthProvider clientId={process.env.CLIENT_ID}>
+            <GoogleOAuthProvider clientId={CLIENT_ID}>
               <Login />
             </GoogleOAuthProvider>
           }
@@ -46,7 +45,7 @@ root.render(
         <Route
           path="/register"
           element={
-            <GoogleOAuthProvider clientId={process.env.CLIENT_ID}>
+            <GoogleOAuthProvider clientId={CLIENT_ID}>
               <Register />
             </GoogleOAuthProvider>
           }
